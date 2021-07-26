@@ -39,15 +39,12 @@
                         >${data[i].title}</a>
                         </li>`;
                 }
-
                 // querySelector: selector의 구체적인 그룹과 일치하는 document안 첫번째 엘리먼트를 반환
                 // id가 nav곳에 navTag(페이지가 담겨있음) 삽입
                 document.querySelector('#nav').innerHTML = navTag;
             }
 
             function setArticle(title, description){
-                var title = 'Welcome';
-                var description = 'Hello, WEB';
                 document.querySelector('article').innerHTML = `<h2>${title}</h2>${description}`;
             }
 
@@ -88,8 +85,16 @@
             </ol>
         </nav>
 
-        <article></article>
-
+        <article>
+            <input type="button" value="add" onclick="
+                var t = prompt('제목?');
+                var d = prompt('본문?');
+                var newData = {id:maxId+1, title:t, description:d}
+                maxId = maxId + 1;
+                data.push(newData);
+                refreshNav();
+            ">
+        </article>
         <script>
             
             init();
