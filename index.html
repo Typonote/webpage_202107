@@ -16,7 +16,14 @@
             function refreshNav(){
                 var navTag = '';
                 for(var i=0; i<data.length; i++){
-                    navTag = navTag +`<li><a href="${data[i].id}.html">${data[i].title}</a></li>`;
+                    navTag = navTag +`<li>
+                        <a 
+                            href="${data[i].id}.html"
+                            onclick="
+                                alert('hi');
+                            "
+                        >${data[i].title}</a>
+                        </li>`;
                     console.log('navTag', navTag)
                 }
 
@@ -76,4 +83,3 @@
     </body>
 
 </html>
-;
