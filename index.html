@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            /* 배열로 페이지를 저장 => 여기서 페이지를 관리*/
+            data=[
+                { id: 1, title: "html", description: "html is..." },
+                { id: 2, title: "css", description: "css is..." },
+                { id: 3, title: "js", description: "js is..." }
+            ]
+
+            function refreshNav(){
+                var navTag = '';
+                for(var i=0; i<data.length; i++){
+                    navTag = navTag +`<li><a href="${data[i].id}.html">${data[i].title}</a></li>`;
+                    console.log('navTag', navTag)
+                }
+
+                // querySelector: selector의 구체적인 그룹과 일치하는 document안 첫번째 엘리먼트를 반환
+                // id가 nav곳에 navTag(페이지가 담겨있음) 삽입
+                document.querySelector('#nav').innerHTML = navTag;
+            }
+
+            function setArticle(title, description){
+                var title = 'Welcome';
+                var description = 'Hello, WEB';
+                document.querySelector('article').innerHTML = `<h2>${title}</h2>${description}`;
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <!--헤더-->
+        <header>
+            <h1>
+                <a href="">WEB</a>
+            </h1>
+        </header>
+
+        <!--네비-->
+        <nav>
+            <ol id="nav">
+                <!-- <script>
+                    
+                    /* 반복문 사용하여 data배열에 작성한 페이지를 nav에 출력(document.write) */
+                    for(var i=0; i<data.length; i++){
+                        // document.write('<li><a href="'+data[i].id+'.html">'+data[i].title+'</a></li>');
+
+                        /* 2번: Template literal 사용(최신문법) */
+                        document.write(`<li><a href="${data[i].id}.html">${data[i].title}</a></li>`);
+                    }
+
+                </script> -->
+            </ol>
+        </nav>
+
+        <article></article>
+
+        <script>
+
+            refreshNav();
+            setArticle('welcome','hello, WEB');
+
+            
+            
+
+        </script>
+
+    </body>
+
+</html>
+;
