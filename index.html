@@ -20,7 +20,13 @@
                         <a 
                             href="${data[i].id}.html"
                             onclick="
-                                alert('hi');
+                                event.preventDefault();
+                                // 1. id 값을 알아낸다.
+                                    var id = ${data[i].id};
+                                    console.log('id',id);
+                                // 2. id 값과 일치하는 데이터를 data 배열 안에서 찾아낸다.
+
+                                // 3. setArticle()을 이용해서 title, desc 값을 변경해준다.
                             "
                         >${data[i].title}</a>
                         </li>`;
